@@ -27,16 +27,16 @@ disabled = false
 
 [git_status]
 format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-conflicted = "=${count}"
-untracked = "?${count}"
-stashed = "\\$${count}"
-modified = "!${count}"
-staged = "+${count}"
-renamed = "»${count}"
-deleted = "✘${count}"
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+conflicted = "=${count} "
+untracked = "U${count} "
+stashed = "\\$${count} "
+modified = "M${count} "
+staged = "+${count} "
+renamed = "R${count} "
+deleted = "D${count} "
 
 [nodejs]
 symbol = " "
