@@ -10,6 +10,11 @@ REPO_ROOT="$(pwd)"
 SRC="$REPO_ROOT/.config/wezterm"
 DEST="$HOME/.config/wezterm"
 
+echo "Repo root: ${REPO_ROOT}"
+echo "Source  : ${SRC}"
+echo "Dest    : ${DEST}"
+echo
+
 if [ ! -d "$SRC" ]; then
   echo "Source directory not found: $SRC" >&2
   exit 1
