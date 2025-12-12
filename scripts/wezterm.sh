@@ -22,11 +22,20 @@ fi
 
 mkdir -p "$HOME/.config"
 
-# Backup existing config if present (file/dir/symlink)
+# If dest is already the correct symlink, do nothing
+if [ -L "$DEST" ]; then
+  TARGET="$(readlink "$DEST" || true)"
+  if [ "$TARGET" = "$SRC" ]; then
+    echo "OK: Already linked."
+    exit 0
+  fi
+fi
+
+# If destination exists (file/dir/symlink), back it up
 if [ -e "$DEST" ] || [ -L "$DEST" ]; then
   TS="$(date +%Y%m%d-%H%M%S)"
-  BACKUP="$HOME/.config/wezterm.backup-$TS"
-  echo "Backing up existing $DEST to $BACKUP"
+  BACKUP="${DEST}.backup.${TS}"
+  echo "Backing up existing $DEST -> $BACKUP"
   mv "$DEST" "$BACKUP"
 fi
 
